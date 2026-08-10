@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melix Dashboard — Select Server</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <nav class="dash-nav">
+    <div class="nav-brand">MELIX<span>BOT</span> DASHBOARD</div>
+    <div class="nav-user" id="navUser">
+      <span id="navUsername">Loading...</span>
+      <img id="navAvatar" src="" alt="avatar" style="display:none">
+      <button class="logout-btn" onclick="Auth.logout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="select-container">
+    <div class="select-header">
+      <h1>Select a Server</h1>
+      <p>Choose a server where MelixBot is present to manage</p>
+    </div>
+
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Loading your servers...</p>
+    </div>
+
+    <div id="error" class="error-msg" style="display:none"></div>
+
+    <div id="guildGrid" class="guild-grid" style="display:none"></div>
+
+    <div id="empty" class="empty-state" style="display:none">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      <p>No servers found. Make sure you have Manage Server permission and MelixBot is in the server.</p>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+  <script>
+    (function() {
+      if (!Auth.isLoggedIn()) {
+        window.location.href = 'index.html';
+        return;
+      }
+
+      async function init() {
+        try {
+          var user = await API.getMe();
+          document.getElementById('navUsername').textContent = user.username;
+          var avatar = document.getElementById('navAvatar');
+          if (user.avatar) {
+            avatar.src = user.avatar;
+            avatar.style.display = '';
+          }
+
+          var guilds = await API.getGuilds();
+          document.getElementById('loading').style.display = 'none';
+
+          if (!guilds || guilds.length === 0) {
+            document.getElementById('empty').style.display = '';
+            return;
+          }
+
+          var grid = document.getElementById('guildGrid');
+          grid.style.display = '';
+
+          guilds.forEach(function(guild) {
+            var card = document.createElement('div');
+            card.className = 'guild-card' + (guild.botInGuild ? '' : ' disabled');
+
+            var initial = guild.name.charAt(0).toUpperCase();
+            var iconUrl = guild.iconUrl || 'data:image/svg+xml,' + encodeURIComponent(
+              '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#1e1e30"/><text x="50" y="62" text-anchor="middle" fill="#5a5a72" font-size="36" font-family="sans-serif">' + initial + '</text></svg>'
+            );
+
+            var badges = '';
+            if (guild.owner) badges += '<div class="guild-badge badge-owner">Owner</div>';
+            if (!guild.botInGuild) badges += '<div class="guild-badge badge-no-bot">Bot not in server</div>';
+
+            card.innerHTML = '<img src="' + iconUrl + '" alt="' + escapeHtml(guild.name) + '" loading="lazy">' +
+              '<div class="guild-name">' + escapeHtml(guild.name) + '</div>' + badges;
+
+            if (guild.botInGuild) {
+              card.addEventListener('click', function() {
+                GuildStore.setSelected({ id: guild.id, name: guild.name, iconUrl: iconUrl });
+                window.location.href = 'manage.html';
+              });
+            }
+
+            grid.appendChild(card);
+          });
+
+        } catch (err) {
+          document.getElementById('loading').style.display = 'none';
+          var errEl = document.getElementById('error');
+          errEl.textContent = 'Failed to load servers: ' + err.message;
+          errEl.style.display = '';
+        }
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>
+

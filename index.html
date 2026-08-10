@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melix — Command Infrastructure for CRC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 20 L100 130 L180 20 C185 90 175 150 140 175 L140 90 L100 145 L60 90 L60 175 C25 150 15 90 20 20 Z" fill="#F72466"/>
+      </svg>
+      <span class="brand-name">MELIX</span>
+    </div>
+    <div class="nav-links nav-mobile-hide">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Products <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="nav-dropdown-menu">
+          <a href="products/cad.html">
+            <span class="nav-dd-title">CAD</span>
+            <span class="nav-dd-desc">Live computer-aided dispatch</span>
+          </a>
+          <a href="products/applications.html">
+            <span class="nav-dd-title">Applications</span>
+            <span class="nav-dd-desc">Staff &amp; department applications</span>
+          </a>
+          <a href="products/departments.html">
+            <span class="nav-dd-title">Departments</span>
+            <span class="nav-dd-desc">Rosters, ranks &amp; structure</span>
+          </a>
+          <a href="products/premium.html">
+            <span class="nav-dd-title">Melix Premium <span class="nav-dd-pill">PRO</span></span>
+            <span class="nav-dd-desc">Extended limits &amp; tools</span>
+          </a>
+        </div>
+      </div>
+      <a href="#how">How it works</a>
+      <a href="#" class="nav-cta">Add to Discord</a>
+    </div>
+    <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-menu">
+    <a href="products/cad.html">CAD</a>
+    <a href="products/applications.html">Applications</a>
+    <a href="products/departments.html">Departments</a>
+    <a href="products/premium.html">Melix Premium</a>
+    <a href="#how">How it works</a>
+    <a href="#" class="nav-cta">Add to Discord</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span>BUILT FOR CENTRAL ROLEPLAY COMMUNITY</span>
+    <h1>The <span class="accent">backbone</span><br>of your community.</h1>
+    <p>Melix is the dispatch console for CRC — command infrastructure for the community, built for roleplay teams that take their chain of command seriously.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.076.076 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+        Add to Discord
+      </a>
+    </div>
+
+    <div class="hero-mark">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 20 L100 130 L180 20 C185 90 175 150 140 175 L140 90 L100 145 L60 90 L60 175 C25 150 15 90 20 20 Z" fill="#F72466"/>
+      </svg>
+    </div>
+
+    <div class="ticker-shell">
+      <div class="ticker-head">
+        <span>DISPATCH LOG — CRC-PD // #mod-activity</span>
+        <span class="live"><span class="dot"></span>LIVE</span>
+      </div>
+      <div class="ticker-body">
+        <div class="ticker-list" id="tickerList"></div>
+      </div>
+    </div>
+
+    <div class="product-strip">
+      <a href="products/cad.html">CAD</a>
+      <a href="products/applications.html">Applications</a>
+      <a href="products/departments.html">Departments</a>
+      <a href="products/premium.html">Melix Premium</a>
+    </div>
+  </div>
+</header>
+
+<section class="section products" id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Products</span>
+      <h2>Everything CRC runs on</h2>
+      <p>Melix isn't built for one department — it's dispatch, staffing, and structure for the whole community, in one place.</p>
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product-card" id="cad">
+        <div class="product-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        </div>
+        <h3>CAD</h3>
+        <p class="product-tag">Computer-Aided Dispatch</p>
+        <p class="product-desc">A live dispatch board for CRC, with automation built underneath it.</p>
+        <ul class="product-bullets">
+          <li>Real-time calls, units &amp; status</li>
+          <li>30+ triggers &amp; automations</li>
+          <li>Discord-linked call logging</li>
+        </ul>
+        <a href="products/cad.html" class="product-learn-more">Learn more &rarr;</a>
+      </div>
+
+      <div class="product-card" id="applications">
+        <div class="product-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+        </div>
+        <h3>Applications</h3>
+        <p class="product-tag">Staff &amp; department intake</p>
+        <p class="product-desc">Custom forms for staff and department roles, reviewed and decided in one place.</p>
+        <ul class="product-bullets">
+          <li>Custom application builder</li>
+          <li>Infractions, promotions &amp; LOAs</li>
+          <li>Staff feedback tracking</li>
+        </ul>
+        <a href="products/applications.html" class="product-learn-more">Learn more &rarr;</a>
+      </div>
+
+      <div class="product-card" id="departments">
+        <div class="product-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        </div>
+        <h3>Departments</h3>
+        <p class="product-tag">Rosters &amp; structure</p>
+        <p class="product-desc">Rank structure and rosters for every department, synced to Discord roles.</p>
+        <ul class="product-bullets">
+          <li>Interactive department rosters</li>
+          <li>Auto role sync on rank change</li>
+          <li>Roblox verification per member</li>
+        </ul>
+        <a href="products/departments.html" class="product-learn-more">Learn more &rarr;</a>
+      </div>
+
+      <div class="product-card product-card-premium" id="premium">
+        <span class="premium-badge">PRO</span>
+        <div class="product-card-icon icon-premium">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5L12 2z"/></svg>
+        </div>
+        <h3>Melix Premium</h3>
+        <p class="product-tag">Extended limits &amp; tools</p>
+        <p class="product-desc">Unlocks extended limits and additional tools on top of the core platform.</p>
+        <ul class="product-bullets">
+          <li>Higher application &amp; roster limits</li>
+          <li>Priority automation processing</li>
+          <li>Custom branding options</li>
+        </ul>
+        <a href="products/premium.html" class="product-learn-more">Learn more &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section how" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Setup</span>
+      <h2>On duty in three commands</h2>
+    </div>
+    <div class="how-list">
+      <div class="how-row">
+        <span class="callsign">10-1</span>
+        <div>
+          <h4>Invite Melix</h4>
+          <p>Add the bot to your server with the permissions it needs to manage roles and channels.</p>
+        </div>
+      </div>
+      <div class="how-row">
+        <span class="callsign">10-2</span>
+        <div>
+          <h4>Configure your server</h4>
+          <p>Set up Melix for your community. Exact steps to be finalized.</p>
+        </div>
+      </div>
+      <div class="how-row">
+        <span class="callsign">10-3</span>
+        <div>
+          <h4>Open the console</h4>
+          <p>Command staff sign in to review activity in real time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-glow"></div>
+  <div class="wrap cta-inner">
+    <h2>Your department is waiting for dispatch.</h2>
+    <p>Free to add. Set up your first department in under five minutes.</p>
+    <a href="#" class="btn-primary">Add Melix to Discord</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-brand">
+        <div class="footer-brand">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 20 L100 130 L180 20 C185 90 175 150 140 175 L140 90 L100 145 L60 90 L60 175 C25 150 15 90 20 20 Z" fill="#F72466"/>
+          </svg>
+          <span>MELIX</span>
+        </div>
+        <p>Command infrastructure for Central Roleplay Community.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Products</div>
+        <a href="products/cad.html">CAD</a>
+        <a href="products/applications.html">Applications</a>
+        <a href="products/departments.html">Departments</a>
+        <a href="products/premium.html">Melix Premium</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Resources</div>
+        <a href="#">Documentation</a>
+        <a href="#">Change logs</a>
+        <a href="#">Support server</a>
+        <a href="#">Status</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Legal</div>
+        <a href="#">Terms of service</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Cookie policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="fine">© 2026 MELIX — BUILT FOR CRC</span>
+      <div class="footer-social">
+        <a href="#">Discord</a>
+        <a href="#">Roblox group</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const entries = [
+    ["04:12:07", "MOD", "@unit_223 promoted to Sergeant by @command_04"],
+    ["04:12:41", "SYS", "New application submitted — @rookie_882"],
+    ["04:13:15", "MOD", "@unit_118 issued a written warning — reason: uniform violation"],
+    ["04:13:58", "SYS", "@unit_305 clocked in for patrol"],
+    ["04:14:22", "MOD", "@unit_099 approved application for @rookie_734"],
+    ["04:15:03", "SYS", "Shift report generated for CRC-PD, Alpha squad"],
+    ["04:15:47", "MOD", "@unit_042 demoted to Cadet by @command_02"],
+    ["04:16:19", "SYS", "@unit_223 clocked out — 2h 14m on duty"],
+  ];
+  const list = document.getElementById('tickerList');
+  const build = () => entries.map(([t, tag, msg]) => {
+    const cls = tag === 'MOD' ? 'tag-mod' : 'tag-sys';
+    return `<div><span class="ts">${t}</span><span class="${cls}">[${tag}]</span> ${msg}</div>`;
+  }).join('');
+  list.innerHTML = build() + build();
+
+  const burger = document.querySelector('.nav-burger');
+  const mobileMenu = document.querySelector('.nav-mobile-menu');
+  burger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    burger.classList.toggle('is-open', open);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.classList.remove('is-open');
+  }));
+</script>
+
+</body>
+</html>
