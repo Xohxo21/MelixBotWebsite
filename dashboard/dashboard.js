@@ -10,10 +10,8 @@ const CONFIG = {
   // Hardcoded Staff Discord User IDs
   // Add or remove IDs to control who has staff access
   STAFF_IDS: [
-    '1536227937504989255',   // Example staff member
-    // Add more staff Discord IDs below:
-    // '123456789012345678',
-    // '987654321098765432',
+    '1114238630161027193',
+    '964318315113750528',
   ],
 
   CLIENT_ID: '1536227937504989255',
