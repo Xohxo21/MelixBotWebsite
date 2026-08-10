@@ -1,7 +1,7 @@
 {
-  "name": "melix-dashboard-backend",
+  "name": "delta-dashboard-backend",
   "version": "1.0.0",
-  "description": "MelixBot Dashboard - Discord OAuth Backend",
+  "description": "Delta Dashboard - Discord OAuth Backend",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
