@@ -1,15 +1,15 @@
 
   :root{
-    --bg: #0A0B10;
-    --panel: #14161C;
-    --panel-raised: #191B23;
-    --line: #24262F;
-    --pink: #F72466;
-    --pink-dim: #7A1233;
-    --cyan: #2DD4E8;
-    --text: #F5F5F7;
-    --muted: #8A8D9B;
-    --muted-dim: #5B5E6B;
+    --bg: #ADD8E6;
+    --panel: #FFFFFF;
+    --panel-raised: #ADD8E6;
+    --line: #FF0000;
+    --pink: #ADD8E6;
+    --pink-dim: #FF0000;
+    --cyan: #FFFFFF;
+    --text: #ADD8E6;
+    --muted: #FF0000;
+    --muted-dim: #FFFFFF;
     --display: 'Rajdhani', sans-serif;
     --body: 'Inter', sans-serif;
     --mono: 'JetBrains Mono', monospace;
